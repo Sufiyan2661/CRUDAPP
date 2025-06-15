@@ -1,0 +1,57 @@
+{% extends "data.html" %}
+
+{% block edit %}
+
+<form action="{% url 'updateData' d.id %}" method="POST" class="space-y-4">
+      {% csrf_token %}
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter Student Name"
+        value={{d.name}}
+        required
+        class="w-full p-1.5 lg:p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Student Email"
+        value={{d.email}}
+        required
+        class="w-full p-1.5 lg:p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+      />
+
+      <input
+        type="number"
+        name="age"
+        placeholder="Enter Student Age"
+        value={{d.age}}
+        required
+        class="w-full p-1.5 lg:p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+      />
+
+      <select
+        name="gender"
+        required
+        class="w-full p-1.5 lg:p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+      >
+        <option  selected>{{d.gender}}</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-medium"
+      >
+        Submit
+      </button>
+    </form>
+
+    
+
+
+{% endblock %}
