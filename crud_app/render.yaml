@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: django-crud-app
+    env: python
+    buildCommand: "cd main && pip install -r requirements.txt"
+    startCommand: "cd main && gunicorn project_folder.wsgi:application"
